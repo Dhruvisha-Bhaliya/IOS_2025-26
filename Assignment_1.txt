@@ -1,0 +1,211 @@
+print("--------- Q-1. Check if marks are greater than or equal to 40, declare result as Pass. ---------")
+print(" ")
+
+let mark1 = 55
+let mark2 = 70
+let mark3 = 70
+let mark4 = 80
+
+var result = "Pass"
+
+if mark1 < 40 || mark2 < 40 || mark3 < 40 || mark4 < 40 {
+    result = "Fail"
+}
+
+let total = mark1 + mark2 + mark3 + mark4
+let percentage = (Double(total) / 400.0) * 100
+
+print("Total Marks: \(total)")
+print("Percentage: \(percentage)%")
+print("Result: \(result)")
+
+print(" ")
+print("--------- Q-2. Check if number is even or odd. ---------")
+print(" ")
+
+let num = 8
+
+let result2 = num == 0 ? "Zero" : (num % 2 == 0 ? "Even" : "Odd")
+print("Number \(num) is : \(result2)")
+
+
+print(" ")
+print("--------- Q-3. Compare marks with grading conditions and print appropriate grade. ---------")
+print(" ")
+
+let marks = 88
+
+switch marks {
+case 90...100:
+    print("Grade: A")
+case 75...89:
+    print("Grade: B")
+case 60...74:
+    print("Grade: C")
+case 0..<60:
+    print("Grade: Fail")
+default:
+    print("Invalid marks")
+}
+
+print(" ")
+print("--------- Q-4. Use switch-case to match values of day and print corresponding day. ---------")
+print(" ")
+
+let day = 7
+
+switch day {
+case 1:
+    print("Monday")
+case 2:
+    print("Tuesday")
+case 3:
+    print("Wednesday")
+case 4:
+    print("Thursday")
+case 5:
+    print("Friday")
+case 6:
+    print("Saturday")
+case 7:
+    print("Sunday")
+default:
+    print("Invalid day number")
+}
+
+print(" ")
+print("--------- Q-5. Find factorial value of N number. ---------")
+print(" ")
+
+let N = 7
+
+var factorial = 1
+
+for i in 1...N {
+    factorial *= i
+}
+
+print("Factorial of \(N) is \(factorial)")
+
+print(" ")
+print("--------- Q-6. List out the prime number series till the N number. ---------")
+print(" ")
+
+let n = 20
+
+for numm in 2...n {
+    var isPrime = true
+
+    for i in 2..<numm {
+        if numm % i == 0 {
+            isPrime = false
+            break
+        }
+    }
+
+    if isPrime {
+        print(numm, terminator: " ")
+    }
+}
+
+print(" ")
+print("--------- Q-7. Check whether string is palindrome or not. ---------")
+print(" ")
+
+let str = "Madam"
+
+let lowerStr = str.lowercased()
+let revStr = String(lowerStr.reversed())
+
+if lowerStr == revStr {
+    print("'\(str)' is a palindrome")
+} else {
+    print("'\(str)' is not a palindrome")
+}
+
+print(" ")
+print("--------- Q-7. Write a program to print below Patterns. ---------")
+print(" ")
+print("--------- Pattern : 1 ---------")
+print(" ")
+
+let rows = 5
+let cols = 5
+
+for _ in 1...rows {
+    for _ in 1...cols {
+        print("*", terminator: "")  
+    }
+    print("")  
+}
+
+print(" ")
+print("--------- Pattern : 2 ---------")
+print(" ")
+
+let row = 5
+
+for i in 1...row {
+    if row - i > 0 {
+        for _ in 1...(row - i) {
+            print(" ", terminator: "")
+        }
+    }
+    
+    for _ in 1...(2*i - 1) {
+        print("*", terminator: "")
+    }
+    print("")
+}
+
+print(" ")
+print("--------- Pattern : 3 ---------")
+print(" ")
+
+var x = 10    
+let y = 4    
+
+for a in 1...y {
+    let b = String(repeating: " ", count: y - a)
+    print(b, terminator: "")
+    
+    for _ in 1...a {
+        if x > 0 {
+            print(x, terminator: " ")
+            x -= 1
+        }
+    }
+    
+    print("") 
+}
+
+print(" ")
+print("--------- Pattern : 4 ---------")
+print(" ")
+
+let s = 5  
+
+for r in 0..<s {    
+    for c in 0..<s {  
+        if r == c || r + c == s - 1 {
+            print("*", terminator: "")
+        } else {
+            print(" ", terminator: "")
+        }
+    }
+    print("") 
+}
+
+print(" ")
+print("--------- Pattern : 5 ---------")
+print(" ")
+
+let roww = 4
+
+for i in 0..<roww {
+    let letter = Character(UnicodeScalar(65 + i)!) 
+    for _ in 0...i {
+        print(letter, terminator: " ")
+    }
+    print("")
+}
