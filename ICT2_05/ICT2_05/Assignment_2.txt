@@ -1,0 +1,252 @@
+import Foundation
+
+print("--------- Q-1. Write  Swift Playground program to perform the following operations on an integer array. ---------")
+print(" ")
+print(" ")
+
+print("--------- 1. Declare and initialize an integer array with at least five elements and display it and print the number of index available in array. ---------")
+print(" ")
+
+var arr1 : [Int] = [10,20,30,40,50]
+
+
+print("Array elements are:")
+print(arr1)
+
+print("Number of indexes available in array:",arr1.count)
+ print(" ")
+//second way :-
+
+let integerArray = [10, 20, 30, 40, 50]
+
+print("Printing indices and elements using enumerated():")
+for (index, element) in integerArray.enumerated() {
+    print("Index: \(index), Element: \(element)")
+}
+
+print(" ")
+print("--------- 2. Check whether the array is empty or not. ---------")
+print(" ")
+
+var arr2 : [Int] = [10,20,30,40,50]
+
+if arr2.isEmpty {
+  print("The array is empty.")
+} else {
+  print("The array is not empty.")
+}
+
+print(" ")
+print("--------- 3. Add a new element at the end of the array. ---------")
+print(" ")
+
+var arr3: [Int] = [5, 15, 25, 35, 45]
+
+print("Original array:")
+print(arr3)
+
+arr3.append(55)
+
+print("Array after adding new element at the end:")
+print(arr3)
+
+print(" ")
+print("--------- 4. Add multiple elements to the array at once. ---------")
+print(" ")
+
+var arr4 = [1,2,3]
+arr4.append(contentsOf: [5,6,7])
+print(arr4)
+
+print(" ")
+print("--------- 5. Insert an element at a specific index. ---------")
+print(" ")
+
+var arr5 = [10,20,30,40,50,60]
+arr5.insert(25,at: 3)
+print(arr5)
+
+print(" ")
+print("--------- 6. Remove an element from a specific index. ---------")
+print(" ")
+
+var arr6 = [10,20,30,40,50]
+arr6.remove(at: 1)
+print(arr6)
+
+print(" ")
+print("--------- 7. Check whether a given element exists in the array. ---------")
+print(" ")
+
+
+var arr7 = [5, 10, 15, 20]
+let element = 15
+
+if arr7.contains(element) {
+    print("\(element) exists in the array")
+} else {
+    print("\(element) does not exist in the array")
+}
+
+print(" ")
+print("--------- 8. Display the first and last elements of the array. ---------")
+print(" ")
+
+var arr8 = [100, 200, 300, 400]
+
+print("First element:", arr8.first!)
+print("Last element:", arr8.last!)
+
+print(" ")
+print("--------- 9. Sort the array in decending order. ---------")
+print(" ")
+
+var arr9 = [4, 1, 7, 3, 9]
+arr9.sort(by: >)
+print(arr9)
+
+print(" ")
+print("--------- 10. Reverse the array. ---------")
+print(" ")
+
+var arr10 = [1, 2, 3, 4, 5]
+arr10.reverse()
+print(arr10)
+
+print(" ")
+print("--------- 11. Create a new array by doubling each element.---------")
+print(" ")
+
+var arr11 = [2, 4, 6]
+let doubledArray = arr11.map { $0 * 2 }
+print(doubledArray)
+
+print(" ")
+print("--------- 12. Create a new array containing elements greater than a given value.---------")
+print(" ")
+
+var arr12 = [10, 20, 30, 40, 50]
+let filteredArray = arr12.filter { $0 > 25 }
+print(filteredArray)
+
+print(" ")
+print("--------- 13. Calculate the sum of all elements. ---------")
+print(" ")
+
+var arr13 = [1, 2, 3, 4, 5]
+let sum = arr13.reduce(0, +)
+print("Sum:", sum)
+
+print(" ")
+print("--------- 14. Print all elements using an index-based loop. ---------")
+print(" ")
+
+var arr14 = [11, 22, 33, 44]
+
+for i in 0..<arr14.count {
+    print("Index \(i): \(arr14[i])")
+}
+
+print(" ")
+print("--------- Q-2. Create a class BankAccount with deposit and withdraw methods and display balance. ---------")
+print(" ")
+
+class BankAccount {
+  var balance : Double = 0
+
+  func deposit(amount:Double){
+    balance += amount
+  }
+
+  func withdraw(amount:Double){
+    if amount <= balance {
+      balance -= amount
+    }else{
+      print("Insufficient balance")
+    }
+  }
+
+  func displayBalance(){
+    print("Current Balance: ",balance)
+  }
+}
+
+let account  = BankAccount()
+account.deposit(amount: 5000)
+account.withdraw(amount:1500)
+account.displayBalance()
+
+print(" ")
+print("--------- Q-3. Create a base class Person with properties name and age. and Create a subclass Employee that inherits Person and calculate salary based on HRA and DA(should use super and self keyword). ---------")
+print(" ")
+
+class Person {
+    var name: String
+    var age: Int
+
+    init(name: String, age: Int) {
+        self.name = name
+        self.age = age
+    }
+}
+
+class Employee: Person {
+    var basicSalary: Double
+    var hra: Double
+    var da: Double
+
+    init(name: String, age: Int, basicSalary: Double, hra: Double, da: Double) {
+        self.basicSalary = basicSalary
+        self.hra = hra
+        self.da = da
+        super.init(name: name, age: age)
+    }
+
+    func calculateSalary() -> Double {
+        return basicSalary + hra + da
+    }
+}
+
+let emp = Employee(name: "Rahul", age: 25, basicSalary: 20000, hra: 5000, da: 3000)
+print("Total Salary:", emp.calculateSalary())
+
+print(" ")
+print("--------- Q-4. Create a real-life example (e.g.,Shape -> Circle) and override area calculation(You can use inheritance). ---------")
+print(" ")
+
+class Shape {
+    func area() -> Double {
+        return 0
+    }
+}
+
+class Circle: Shape {
+    var radius: Double
+
+    init(radius: Double) {
+        self.radius = radius
+    }
+
+    override func area() -> Double {
+        return 3.14 * radius * radius
+    }
+}
+
+let circle = Circle(radius: 7)
+print("Area of Circle:", circle.area())
+
+print(" ")
+print("--------- Q-3. Create a structure Book with title,author, and price.ANd display  its details. ---------")
+print(" ")
+
+struct Book {
+    var title: String
+    var author: String
+    var price: Double
+}
+
+let book = Book(title: "Swift Programming", author: "Apple", price: 499)
+print("Title:", book.title)
+print("Author:", book.author)
+print("Price:", book.price)
+
